@@ -68,11 +68,6 @@ setInterval(() => {
   publicScan();
 }, constants.publicScanInterval);
 
-// ping self to avoid heroku idling
-setInterval(() => {
-  fetch(process.env.HOST).then((r) => {});
-}, 300000);
-
 function privateScan() {
   console.log('Running private scan...');
   var currentTime = Math.floor(Date.now() / 1000);
