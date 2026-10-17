@@ -6,7 +6,7 @@ var fetch = require('node-fetch');
 const { URLSearchParams } = require('url');
 
 AWS.config.update({
-  region: 'us-west-2',
+  region: process.env.AWS_REGION || 'eu-north-1',
 });
 
 const docClient = new AWS.DynamoDB.DocumentClient();
