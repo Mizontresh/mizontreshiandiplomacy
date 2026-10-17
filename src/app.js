@@ -28,6 +28,8 @@ AWS.config.update({
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
+console.log('This one officer, this one here:', docClient.service.config.region);
+
 class DiscordWebDiplomacyClient extends AkairoClient {
   constructor() {
     super(
