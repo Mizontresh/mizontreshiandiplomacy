@@ -3,7 +3,7 @@ const constants = require('../constants');
 const AWS = require('aws-sdk');
 
 AWS.config.update({
-  region: 'us-west-2',
+  region: process.env.AWS_REGION || 'eu-north-1',
 });
 
 const tableName = 'GameSubscription';
