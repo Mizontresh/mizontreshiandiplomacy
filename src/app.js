@@ -23,7 +23,7 @@ server.listen(process.env.PORT, () => {
 });
 
 AWS.config.update({
-  region: 'us-west-2',
+  region: process.env.AWS_REGION || 'eu-north-1',
 });
 
 const docClient = new AWS.DynamoDB.DocumentClient();
