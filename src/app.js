@@ -116,9 +116,16 @@ function privateScan() {
                 `Game ID ${gameId} not found. You will be unsubscribed from updates.`
               );
             }
-            var loggedIn = $('.logon > a', body)
-              .attr('href')
-              .includes('logoff=on');
+            
+            const logoutHref = $('.logon > a', body).attr('href');
+            const loggedIn = typeof logoutHref === 'string'
+             && logoutHref.includes('logoff=on');
+
+             if (!loggedIn) {
+             console.warn(`Meow at:${userId}`);
+             return;
+            }
+            
             if (!loggedIn) {
               deletePlayerSubscription(
                 userId,
